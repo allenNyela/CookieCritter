@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Main_Menu : MonoBehaviour
 {
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,5 +25,10 @@ public class Main_Menu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void ButtonClicked()
+    {
+        animator.SetTrigger("Pressed");
     }
 }
