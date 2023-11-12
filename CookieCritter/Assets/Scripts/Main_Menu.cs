@@ -46,6 +46,8 @@ public class Main_Menu : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene("Mini_Game_1");
+    }
+
     public void Controls()
     {
         controlsPageAnimator.SetTrigger("Enable");
