@@ -25,6 +25,12 @@ public class CookieMovingAround : MonoBehaviour
 //want to add on click function where 
     void Update()
     {
+        for(int i = 1; i<=5; i++){
+            if(GameManager.OverallFlourCount >= i*20){
+                spriteVersion = i;
+            }
+        }
+
         speed = 0.5f;
         var step =  speed * Time.deltaTime; // calculate distance to move
         if (timer <= 0 ){
@@ -95,3 +101,6 @@ public class CookieMovingAround : MonoBehaviour
 // move to flour
 //call consume function
 //increase flour counter 
+
+//Flour count
+//30 between each stage
