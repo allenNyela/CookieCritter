@@ -27,6 +27,6 @@ public class BuyFlour : MonoBehaviour
     }
 
     public void DispenseFlour() {
-        Instantiate(flourPilePrefab, new Vector3(-7.54f, 2.354372f, 0f), Quaternion.identity);
+        Instantiate(flourPilePrefab, new Vector3(-1.336f, 0.453f, 0f), Quaternion.identity);
     }
 }
