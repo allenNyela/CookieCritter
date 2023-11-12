@@ -40,7 +40,7 @@ public class Main_Menu : MonoBehaviour
 
     public void GoBack()
     {
-        SceneManager.LoadScene("Main_Level");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void Retry()
