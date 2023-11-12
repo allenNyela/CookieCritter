@@ -31,7 +31,7 @@ public class Main_Menu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Main_Level");
+        SceneManager.LoadScene("MainScene");
     }
     public void Quit()
     {
