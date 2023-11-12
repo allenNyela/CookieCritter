@@ -37,6 +37,15 @@ public class Main_Menu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene("Main_Level");
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("Mini_Game_1");
     public void Controls()
     {
         controlsPageAnimator.SetTrigger("Enable");
