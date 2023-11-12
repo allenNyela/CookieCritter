@@ -30,7 +30,7 @@ public class CookieMovingAround : MonoBehaviour
     public void checkVersion(){
         //changes the sprite version based on number of flour eaten
         for(int i = 1; i<=5; i++){
-            if(GameManager.OverallFlourCount >= (i-1)*30){
+            if(GameManager.numberFlourEaten >= (i-1)*1){
                 spriteVersion = i;
             }
         }
@@ -58,14 +58,33 @@ public class CookieMovingAround : MonoBehaviour
             else {
                 this.GetComponent<SpriteRenderer>().sprite = eatingSprite5;
             }
-            //if its reached the flour 
+    
+            //if it hasnt reached the flour 
             if(transform.position != new Vector3 (-1.08f, -0.218f)){
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3 (-1.08f, -0.218f), step);
             }
+            //if it has reached the flour 
             else{
+                GameManager.numberFlourEaten += 1;
                 GameManager.flourClicked = false;
+                checkVersion();
+                //switch to moving sprite
+                if(spriteVersion == 1){
+                    this.GetComponent<SpriteRenderer>().sprite = rightFacingSprite1;
+                }
+                else if(spriteVersion == 2){
+                    this.GetComponent<SpriteRenderer>().sprite = rightFacingSprite2;
+                }
+                else if(spriteVersion == 3){
+                    this.GetComponent<SpriteRenderer>().sprite = rightFacingSprite3;
+                }
+                else if(spriteVersion == 4){
+                    this.GetComponent<SpriteRenderer>().sprite = rightFacingSprite4;
+                }
+                else {
+                    this.GetComponent<SpriteRenderer>().sprite = rightFacingSprite5;
+                }
             }
-
         }  
         else if (timer <= 0 ){
             xVal = Random.Range(-1.26f, 1.26f);
