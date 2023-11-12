@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static float CurrentScore;
     [SerializeField]
     public static float OverallScore;
+    //how many flour it's eaten
+    public static int OverallFlourCount;
     // Start is called before the first frame update
     void Start()
     {
