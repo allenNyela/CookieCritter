@@ -20,20 +20,54 @@ public class CookieMovingAround : MonoBehaviour
     public Sprite rightFacingSprite4;
     public Sprite frontFacingSprite5;
     public Sprite rightFacingSprite5;
+    public Sprite eatingSprite1;
+    public Sprite eatingSprite2;
+    public Sprite eatingSprite3;
+    public Sprite eatingSprite4;
+    public Sprite eatingSprite5;
 
 
-//want to add on click function where 
-    void Update()
-    {
+    public void checkVersion(){
+        //changes the sprite version based on number of flour eaten
         for(int i = 1; i<=5; i++){
-            if(GameManager.OverallFlourCount >= i*20){
+            if(GameManager.OverallFlourCount >= (i-1)*30){
                 spriteVersion = i;
             }
         }
+    }
 
+    void Update()
+    {
+        checkVersion();
         speed = 0.5f;
         var step =  speed * Time.deltaTime; // calculate distance to move
-        if (timer <= 0 ){
+        if(GameManager.flourClicked){
+            //swap sprite to the eating one 
+            if(spriteVersion == 1){
+                this.GetComponent<SpriteRenderer>().sprite = eatingSprite1;
+            }
+            else if(spriteVersion == 2){
+                this.GetComponent<SpriteRenderer>().sprite = eatingSprite2;
+            }
+            else if(spriteVersion == 3){
+                this.GetComponent<SpriteRenderer>().sprite = eatingSprite3;
+            }
+            else if(spriteVersion == 4){
+                this.GetComponent<SpriteRenderer>().sprite = eatingSprite4;
+            }
+            else {
+                this.GetComponent<SpriteRenderer>().sprite = eatingSprite5;
+            }
+            //if its reached the flour 
+            if(transform.position != new Vector3 (-1.08f, -0.218f)){
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3 (-1.08f, -0.218f), step);
+            }
+            else{
+                GameManager.flourClicked = false;
+            }
+
+        }  
+        else if (timer <= 0 ){
             xVal = Random.Range(-1.26f, 1.26f);
             yVal = Random.Range(-0.31f, 0.13f);
             //switch to moving sprite
@@ -52,8 +86,6 @@ public class CookieMovingAround : MonoBehaviour
             else {
                 this.GetComponent<SpriteRenderer>().sprite = rightFacingSprite5;
             }
-
-
             //moving to the right
             if(xVal > transform.position.x){
                 this.GetComponent<SpriteRenderer>().flipX = false;
