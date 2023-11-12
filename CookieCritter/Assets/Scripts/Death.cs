@@ -12,6 +12,7 @@ public class Death : MonoBehaviour
     {
         GameManager.ResetCurrentScore();
         GameOverScreen.SetActive(false);
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -29,6 +30,7 @@ public class Death : MonoBehaviour
         {
             GameManager.AddToOverallScore(GameManager.GetCurrentScore());
             GameOverScreen.SetActive(true);
+            Cursor.visible = true;
         }
     }
 }
