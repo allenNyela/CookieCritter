@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9339623, g: 0, b: 0.50111705, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,6 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprinkle: {fileID: 4667162800121963467}
+  Sprinkle1: {fileID: 21300000, guid: c98b98e766cb249698e7527ad4ce263e, type: 3}
+  Sprinkle2: {fileID: 21300000, guid: 26e8467582dd241f680851fb43aafe39, type: 3}
+  Sprinkle3: {fileID: 21300000, guid: e96637e0820544a7e818d8f7d3608800, type: 3}
+  Sprinkle4: {fileID: 21300000, guid: bd45b079af11e482c84799577b8be5f7, type: 3}
+  Sprinkle5: {fileID: 21300000, guid: b993af87becb848aba6d3af3c97b9e3e, type: 3}
 --- !u!61 &-5754054459432156398
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -142,5 +147,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.82}
   m_EdgeRadius: 0

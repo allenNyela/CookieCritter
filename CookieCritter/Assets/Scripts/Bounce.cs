@@ -9,7 +9,7 @@ public class Bounce : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        jumpHeight = 600f;
+        jumpHeight = 620f;
     }
 
     // Update is called once per frame
