@@ -8,6 +8,7 @@ public class Replace : MonoBehaviour
     public GameObject Player;
     public GameObject Platform;
     public GameObject ExtraBouncy;
+    public GameObject Movy;
     public GameObject myPlat;
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,17 @@ public class Replace : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        int rand = 0;
         if (collision.gameObject.name.StartsWith("Platform"))
         {
-            if (Random.Range(1, 7) == 1)
+            if ((rand = Random.Range(1, 9)) == 1)
             {
                 Destroy(collision.gameObject);
                 Instantiate(ExtraBouncy, new Vector2(Random.Range(-10.5f, 10.5f), Player.transform.position.y + (8 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+            } else if ((rand = Random.Range(1, 4)) == 1)
+            {
+                Destroy(collision.gameObject);
+                Instantiate(Movy, new Vector2(Random.Range(-7.5f, 7.5f), Player.transform.position.y + (8 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
             }
             else
             {
@@ -37,15 +43,39 @@ public class Replace : MonoBehaviour
         }
         else if (collision.gameObject.name.StartsWith("ExtraBouncy"))
         {
-            if (Random.Range(1, 7) == 1)
+            if ((rand = Random.Range(1, 9)) == 1)
             {
                 collision.gameObject.transform.position = new Vector2(Random.Range(-10.5f, 10.5f), Player.transform.position.y + (8 + Random.Range(0.2f, 1.0f)));
+            }
+            else if ((rand = Random.Range(1, 4)) == 1)
+            {
+                Destroy(collision.gameObject);
+                Instantiate(Movy, new Vector2(Random.Range(-7.5f, 7.5f), Player.transform.position.y + (8 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
             }
             else
             {
                 Destroy(collision.gameObject);
                 Instantiate(Platform, new Vector2(Random.Range(-10.5f, 10.5f), Player.transform.position.y + (8 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
             }
+        } else if (collision.gameObject.name.StartsWith("Moving"))
+        {
+            if ((rand = Random.Range(1, 9)) == 1)
+            {
+                Destroy(collision.gameObject);
+                Instantiate(ExtraBouncy, new Vector2(Random.Range(-7.5f, 7.5f), Player.transform.position.y + (8 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+            }
+            else if ((rand = Random.Range(1, 4)) == 1)
+            {
+                collision.gameObject.transform.position = new Vector2(Random.Range(-10.5f, 10.5f), Player.transform.position.y + (8 + Random.Range(0.2f, 1.0f)));      
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+                Instantiate(Platform, new Vector2(Random.Range(-10.5f, 10.5f), Player.transform.position.y + (8 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+            }
+        } else if (collision.gameObject.name.StartsWith("Sprinkle"))
+        {
+            collision.gameObject.transform.position = new Vector2(Random.Range(-10.5f, 10.5f), Player.transform.position.y + (8 + Random.Range(0.2f, 1.0f)));
         }
         
         

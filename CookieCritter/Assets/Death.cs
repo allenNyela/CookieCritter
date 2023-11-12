@@ -10,6 +10,7 @@ public class Death : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        GameManager.ResetCurrentScore();
         GameOverScreen.SetActive(false);
     }
 
@@ -26,6 +27,7 @@ public class Death : MonoBehaviour
     {
         if (collision.gameObject.name.StartsWith("Player"))
         {
+            GameManager.AddToOverallScore(GameManager.GetCurrentScore());
             GameOverScreen.SetActive(true);
         }
     }
