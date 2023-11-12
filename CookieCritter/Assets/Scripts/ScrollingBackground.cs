@@ -23,9 +23,9 @@ public class ScrollingBackground : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 targetPos = new Vector3(transform.position.x, target.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, targetPos, 0.2f);
+        transform.position = new Vector3(Mathf.Clamp(target.position.x, -5.5f, 5.5f), target.position.y, transform.position.z);
 
-        if (transform.position.y >= background2.position.y)
+        if (transform.position.y >= background2.position.y + 3)
         {
             background1.position = new Vector3(background1.position.x, background2.position.y + size, background1.position.z);
             SwitchBackground();

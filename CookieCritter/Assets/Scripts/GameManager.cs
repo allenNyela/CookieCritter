@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static float OverallScore;
     //how many flour it's eaten
     public static int OverallFlourCount;
+    public static bool isPaused = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("p"))
+        {
+            Debug.Log("p was pressed");
+            if (isPaused)
+            {
+                isPaused = false;
+            } else
+            {
+                isPaused = true;
+            }        
+        }
     }
 
 
@@ -52,6 +63,11 @@ public class GameManager : MonoBehaviour
     public static void ResetCurrentScore()
     {
         CurrentScore = 0;
+    }
+
+    public static bool IsPaused()
+    {
+        return isPaused;
     }
 
 }

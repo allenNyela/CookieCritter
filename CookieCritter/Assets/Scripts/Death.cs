@@ -6,12 +6,14 @@ public class Death : MonoBehaviour
 {
     public GameObject Player;
     public GameObject GameOverScreen;
+    public GameObject PausedScreen;
 
     // Start is called before the first frame update
     void Awake()
     {
         GameManager.ResetCurrentScore();
         GameOverScreen.SetActive(false);
+        PausedScreen.SetActive(false);
         Cursor.visible = false;
     }
 
@@ -20,7 +22,7 @@ public class Death : MonoBehaviour
     {
         if (Player.gameObject.GetComponent<Rigidbody2D>().velocity.y >= 0)
         {
-            this.transform.position = new Vector2(Player.transform.position.x, Player.transform.position.y - 40);
+            this.transform.position = new Vector2(Player.transform.position.x, Player.transform.position.y - 30);
         }
     }
 
