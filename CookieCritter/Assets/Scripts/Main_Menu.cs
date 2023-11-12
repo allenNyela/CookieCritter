@@ -6,10 +6,21 @@ using UnityEngine.SceneManagement;
 public class Main_Menu : MonoBehaviour
 {
     Animator animator;
+
+    Animator controlsPageAnimator;
+
+    Animator controlsButtonAnimator;
+
+    public GameObject controlsPage;
+
+    public GameObject controlsButton;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        controlsPageAnimator = controlsPage.GetComponent<Animator>();
+        controlsButtonAnimator = controlsButton.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,6 +36,16 @@ public class Main_Menu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+    public void Controls()
+    {
+        controlsPageAnimator.SetTrigger("Enable");
+    }
+
+    public void ExitControls()
+    {
+        controlsButtonAnimator.SetTrigger("Normal");
+        controlsPageAnimator.SetTrigger("Disable");
     }
 
     public void ButtonClicked()
