@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public static bool flourClicked;
     //whether or not a flour was clicked on
     public static int numberFlourEaten;
+    //current stage of player
+    public static Sprite Player;
     // Start is called before the first frame update
     void Start()
     {

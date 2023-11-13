@@ -43,8 +43,7 @@ public class Consume : MonoBehaviour
         if (collision.gameObject.name.StartsWith("Player"))
         {
             GameManager.IncreaseScore();
-            Instantiate(Sprinkle, new Vector2(Random.Range(-10.5f, 10.5f), collision.transform.position.y + (15 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
-            Destroy(gameObject);
+            this.transform.position = new Vector2(Random.Range(-10.5f, 10.5f), collision.transform.position.y + (8 + Random.Range(0.2f, 1.0f)));
 
         }
     }
