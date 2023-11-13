@@ -48,6 +48,11 @@ public class Main_Menu : MonoBehaviour
         SceneManager.LoadScene("Mini_Game_1");
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
+
     public void Controls()
     {
         controlsPageAnimator.SetTrigger("Enable");
