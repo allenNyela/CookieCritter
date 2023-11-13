@@ -9,5 +9,14 @@ public class FlourScript : MonoBehaviour
     {  
         GameManager.flourClicked = true;
         Destroy(gameObject);
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if (collision.gameObject.name.StartsWith("DoughIdle"))
+        //{
+            
+        //}
     }
 }

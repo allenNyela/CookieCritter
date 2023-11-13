@@ -30,9 +30,13 @@ public class Death : MonoBehaviour
     {
         if (collision.gameObject.name.StartsWith("Player"))
         {
-            GameManager.AddToOverallScore(GameManager.GetCurrentScore());
+            float score = GameManager.GetCurrentScore();
+            //Debug.Log(score);
+            GameManager.AddToOverallScore(score);
+            //Debug.Log(GameManager.GetOverallScore());
             GameOverScreen.SetActive(true);
             Cursor.visible = true;
+            Destroy(this);
         }
     }
 }
