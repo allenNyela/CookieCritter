@@ -26,13 +26,23 @@ public class CookieMovingAround : MonoBehaviour
     public Sprite eatingSprite3;
     public Sprite eatingSprite4;
     public Sprite eatingSprite5;
+    private List<Sprite> Stages = new List<Sprite>();
 
+    private void Start()
+    {
+        Stages.Add(frontFacingSprite1);
+        Stages.Add(frontFacingSprite2);
+        Stages.Add(frontFacingSprite3);
+        Stages.Add(frontFacingSprite4);
+        Stages.Add(frontFacingSprite5);
+    }
 
     public void checkVersion(){
         //changes the sprite version based on number of flour eaten
         for(int i = 1; i <= 5; i++){
             if(GameManager.numberFlourEaten >= (i - 1) * numberToGrow){
                 spriteVersion = i;
+                GameManager.Player = Stages[i - 1];
             }
         }
     }
@@ -62,11 +72,32 @@ public class CookieMovingAround : MonoBehaviour
     
             //if it hasnt reached the flour 
             if(transform.position != new Vector3 (-1.08f, -0.218f)){
+                if (transform.position.x >= -1.08f)
+                {
+                    if (spriteVersion == 1) {
+                        this.GetComponent<SpriteRenderer>().flipX = false;
+                    } else
+                    {
+                        this.GetComponent<SpriteRenderer>().flipX = true;
+                    }
+                    
+                } else
+                {
+                    if (spriteVersion == 1)
+                    {
+                        this.GetComponent<SpriteRenderer>().flipX = true;
+                    }
+                    else
+                    {
+                        this.GetComponent<SpriteRenderer>().flipX = false;
+                    }
+                    //this.GetComponent<SpriteRenderer>().flipX = false;
+                }
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3 (-1.08f, -0.218f), step);
             }
             //if it has reached the flour 
             else{
-                GameManager.numberFlourEaten += 1;
+                //GameManager.numberFlourEaten += 1;
                 GameManager.flourClicked = false;
                 checkVersion();
                 //switch to moving sprite
@@ -85,6 +116,7 @@ public class CookieMovingAround : MonoBehaviour
                 else {
                     this.GetComponent<SpriteRenderer>().sprite = rightFacingSprite5;
                 }
+                Debug.Log(GameManager.numberFlourEaten);
             }
         }  
         else if (timer <= 0 ){
@@ -142,8 +174,26 @@ public class CookieMovingAround : MonoBehaviour
                 }
                 //add a pause here? idk how ):
                 //can I also pause the wobble animation at this part?
+                
             }
 
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if (collision.gameObject.name.StartsWith("DoughIdle"))
+        //{
+        if (collision.gameObject.name.StartsWith("Flour"))
+        {
+            if (GameManager.flourClicked)
+            {
+                //Debug.Log("Collision!!");
+                GameManager.numberFlourEaten += 1;
+                Debug.Log(GameManager.numberFlourEaten);
+                Destroy(collision.gameObject);
+            }
+            
         }
     }
 }

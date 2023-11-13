@@ -28,7 +28,14 @@ public class Controller : MonoBehaviour
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             moveInput = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-        } else
+            if (gameObject.GetComponent<Rigidbody2D>().velocity.x >= 0)
+            {
+                this.GetComponent<SpriteRenderer>().flipX = false;
+            } else if (gameObject.GetComponent<Rigidbody2D>().velocity.x <= 0)
+            {
+                this.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            } else
         {
             PausedScreen.SetActive(true);
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;

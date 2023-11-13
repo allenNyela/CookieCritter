@@ -15,6 +15,7 @@ public class Death : MonoBehaviour
         GameOverScreen.SetActive(false);
         PausedScreen.SetActive(false);
         Cursor.visible = false;
+        Player.GetComponent<SpriteRenderer>().sprite = GameManager.Player;
     }
 
     // Update is called once per frame
