@@ -1834,7 +1834,7 @@ MonoBehaviour:
   yVal: -0.151
   timer: 8
   spriteVersion: 1
-  numberToGrow: 10
+  numberToGrow: 20
   frontFacingSprite1: {fileID: 21300000, guid: 4f23f0f33f297406d9fc44f2dfd5063e, type: 3}
   rightFacingSprite1: {fileID: 21300000, guid: 4801a554a89e049038fb5cd7888afc02, type: 3}
   frontFacingSprite2: {fileID: 21300000, guid: b5ea76e92507d4b069fa510fcaf9e667, type: 3}
