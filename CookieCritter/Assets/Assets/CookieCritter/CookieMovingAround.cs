@@ -10,6 +10,7 @@ public class CookieMovingAround : MonoBehaviour
     public float yVal = -0.151f;
     public float timer = 3.5f; 
     public int spriteVersion = 1;
+    public int numberToGrow = 1;
     public Sprite frontFacingSprite1;
     public Sprite rightFacingSprite1;
     public Sprite frontFacingSprite2;
@@ -29,8 +30,8 @@ public class CookieMovingAround : MonoBehaviour
 
     public void checkVersion(){
         //changes the sprite version based on number of flour eaten
-        for(int i = 1; i<=5; i++){
-            if(GameManager.numberFlourEaten >= (i-1)*1){
+        for(int i = 1; i <= 5; i++){
+            if(GameManager.numberFlourEaten >= (i - 1) * numberToGrow){
                 spriteVersion = i;
             }
         }
